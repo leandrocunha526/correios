@@ -78,5 +78,14 @@ def main():
     fechar_conexao(conn, cursor)
 
 
+# to test using pytest
+def buscar_cep(cep):
+    url = f"https://viacep.com.br/ws/{cep}/json/"
+    response = requests.get(url)
+    if response.status_code == 200:
+        return response.json()
+    return None
+
+
 if __name__ == "__main__":
     main()
